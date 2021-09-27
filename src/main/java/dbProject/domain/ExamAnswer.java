@@ -17,16 +17,21 @@ public class ExamAnswer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    Set<Question> questions;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    Question questions;
 
     Integer answer;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    Set<Exam> exams;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    Exam exam;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    Set<Student> students;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    Student student;
 
-
+    public ExamAnswer(Question questions, Integer answer, Exam exam, Student student) {
+        this.questions = questions;
+        this.answer = answer;
+        this.exam = exam;
+        this.student = student;
+    }
 }

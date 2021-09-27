@@ -49,7 +49,7 @@ public class SessionFactoryProvider {
         return sessionFactory;
     }
 
-    public static void changeEntity(Consumer<Session> consumer) {
+    public static void editInstance(Consumer<Session> consumer) {
         Transaction transaction = null;
         Session session = null;
         try {
@@ -69,7 +69,7 @@ public class SessionFactoryProvider {
         }
     }
 
-    public static <T> T getEntity(Function<Session, T> function) {
+    public static <T> T getInstance(Function<Session, T> function) {
         try(Session session = SessionFactoryProvider.getSessionFactoryProvider().getSessionFactory().openSession();) {
             return function.apply(session);
         } catch(Exception e) {

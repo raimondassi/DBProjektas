@@ -6,7 +6,7 @@ import dbProject.domain.Student;
 import dbProject.repository.ExamRepository;
 import dbProject.repository.QuestionRepository;
 import dbProject.repository.StudentRepository;
-import dbProject.service.ExamAnswerRepository;
+import dbProject.repository.ExamAnswerRepository;
 
 import java.util.Scanner;
 
@@ -20,15 +20,19 @@ public class UserInterface {
 
     ExamRepository examRepository = new ExamRepository();
 
-    ExamAnswerRepository examAnswerRepository=new ExamAnswerRepository();
+    ExamAnswerRepository examAnswerRepository = new ExamAnswerRepository();
 
     public void start() {
         while(true) {
-            System.out.println("Choose what you want to do: " + "\n 1. Take exam?" + "\n 2. Enter new question" + "\n 3. Edit existing question" + "\n 4. Check statistics" + "\n 5. Log out");
+            System.out.println("Choose what you want to do: " +
+                    "\n 1. Take exam?" +
+                    "\n 2. Enter new question" +
+                    "\n 3. Edit existing question" +
+                    "\n 4. Check statistics" +
+                    "\n 5. Log out");
             Integer variant = scanner.nextInt();
             if(variant > 0 && variant < 5) {
                 letsDoSomeStuff(variant);
-                break;
             }
             if(variant == 5) {
                 System.exit(-1);
@@ -98,7 +102,7 @@ public class UserInterface {
             Integer examId = scanner.nextInt();
             Exam exam = examRepository.getExamById(examId);
             if(exam != null) {
-                examAnswerRepository.takeExam(exam);
+                examAnswerRepository.takeExam(student, exam);
             } else {
                 createNewExam();
             }

@@ -3,6 +3,7 @@ package dbProject.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -22,6 +23,9 @@ public class Student {
     private String surname;
 
     private String password;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<ExamAnswer> examAnswers;
 
     public Student(String name, String surname, String password) {
         this.name = name;

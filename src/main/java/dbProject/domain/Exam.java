@@ -21,6 +21,9 @@ public class Exam {
     @OneToMany(mappedBy = "exam", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Question> questions;
 
+    @OneToMany(mappedBy = "exam", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<ExamAnswer> examAnswers;
+
     public Exam(Integer id, String name) {
         this.id = id;
         this.name = name;

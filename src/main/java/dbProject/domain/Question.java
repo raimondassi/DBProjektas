@@ -3,6 +3,7 @@ package dbProject.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -33,6 +34,11 @@ public class Question {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Exam exam;
+
+    @OneToMany(mappedBy = "questions", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<ExamAnswer> examAnswers;
+
+
 
     public Question(Integer question_id, @NonNull String question, @NonNull String firstAnswer, @NonNull String secondAnswer, @NonNull String thirdAnswer, @NonNull Integer correctAnswerNr, @NonNull Exam exam) {
         this.question_id = question_id;
