@@ -25,8 +25,8 @@ public class ExamAnswer {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     Student student;
 
-    public ExamAnswer(Question questions, Integer answer,Student student) {
-        this.question = questions;
+    public ExamAnswer(Question question, Integer answer, Student student) {
+        this.question = question;
         this.answer = answer;
         this.student = student;
     }

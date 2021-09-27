@@ -1,12 +1,10 @@
 package dbProject.ui;
 
 import dbProject.domain.Exam;
+import dbProject.domain.Grade;
 import dbProject.domain.Question;
 import dbProject.domain.Student;
-import dbProject.repository.ExamRepository;
-import dbProject.repository.QuestionRepository;
-import dbProject.repository.StudentRepository;
-import dbProject.repository.ExamAnswerRepository;
+import dbProject.repository.*;
 
 import java.util.Scanner;
 
@@ -21,6 +19,8 @@ public class UserInterface {
     ExamRepository examRepository = new ExamRepository();
 
     ExamAnswerRepository examAnswerRepository = new ExamAnswerRepository();
+
+    GradeRepository gradeRepository=new GradeRepository();
 
     public void start() {
         while(true) {
@@ -133,6 +133,11 @@ public class UserInterface {
     }
 
     public void checkStatistics() {
+        System.out.println("Check grade for student and exam: enter student id and exam id ");
+        Integer studentId=scanner.nextInt();
+        Integer examId=scanner.nextInt();
+
+        gradeRepository.getGradeByStudentIdAndExamId(studentId, examId);
     }
 }
 

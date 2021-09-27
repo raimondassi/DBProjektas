@@ -15,11 +15,13 @@ public class Grade {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @OneToOne
+    @ManyToOne
     private Student student;
 
-    @OneToOne
+    @ManyToOne
     private Exam exam;
 
     private Double grade;
+
+
 }

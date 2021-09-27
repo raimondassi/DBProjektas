@@ -25,11 +25,18 @@ public class Student {
     private String password;
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<ExamAnswer> examAnswers;
+    private Set<ExamAnswer> exams;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Grade> grades;
+
+
 
     public Student(String name, String surname, String password) {
         this.name = name;
         this.surname = surname;
         this.password = password;
     }
+
+
 }
