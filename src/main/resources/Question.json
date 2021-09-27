@@ -1,0 +1,12 @@
+{
+  "question_id": null,
+  "question": "",
+  "FirstAnswer": "",
+  "SecondAnswer": "",
+  "ThirdAnswer": "",
+  "correctAnswerNr": 0,
+  "exam": {
+    "id": null,
+    "name": "Java"
+  }
+}
