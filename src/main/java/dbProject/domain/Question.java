@@ -35,7 +35,7 @@ public class Question {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Exam exam;
 
-    @OneToMany(mappedBy = "questions", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<ExamAnswer> examAnswers;
 
 

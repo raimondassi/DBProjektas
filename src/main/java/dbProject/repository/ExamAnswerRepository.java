@@ -24,7 +24,7 @@ public class ExamAnswerRepository {
             System.out.println("Third answer: " + question.getThirdAnswer());
             System.out.println("Write correct answer");
             Integer atsakymas = scanner.nextInt();
-            ExamAnswer examAnswer = new ExamAnswer(question, atsakymas, exam, student);
+            ExamAnswer examAnswer = new ExamAnswer(question, atsakymas, student);
             SessionFactoryProvider.editInstance(session -> session.save(examAnswer));
         }
     }
